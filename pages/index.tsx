@@ -2,6 +2,14 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.less";
+
+import { Button } from "antd-mobile";
+import Search from "./components/search";
+import Filter from "./components/filter";
+import React, { useEffect, useState } from "react";
+import { getCollectionInfo, getCollectionNfts } from "./api/request";
+import userConfig from "@/userConfig.json";
+import { useRouter } from "next/router";
 import { useState } from "react"
 import { MirrorWorld, ClusterEnvironment } from "@mirrorworld/web3.js"
 import styles from "../styles/Home.module.css"
@@ -22,13 +30,6 @@ export default function Home() {
     </div>
   )
 }
-import { Button } from "antd-mobile";
-import Search from "./components/search";
-import Filter from "./components/filter";
-import React, { useEffect, useState } from "react";
-import { getCollectionInfo, getCollectionNfts } from "./api/request";
-import userConfig from "@/userConfig.json";
-import { useRouter } from "next/router";
 
 const newList = new Array();
 const Home = () => {
