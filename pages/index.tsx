@@ -2,7 +2,26 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.less";
+import { useState } from "react"
+import { MirrorWorld, ClusterEnvironment } from "@mirrorworld/web3.js"
+import styles from "../styles/Home.module.css"
 
+const [user, setUser] = useState()
+
+export default function Home() {
+  async function login() {
+    const { user } = await mirrorworld.login()
+    setUser(user)
+  }
+
+  return (
+    <div className={styles.container}>
+      <main className={styles.main}>
+        <button onClick={login}>Login to Mirror World</button>
+      </main>
+    </div>
+  )
+}
 import { Button } from "antd-mobile";
 import Search from "./components/search";
 import Filter from "./components/filter";
